@@ -1,4 +1,3 @@
-
 import { createContext, useReducer } from 'react'
 
 export const WorkoutsContext = createContext()
@@ -13,10 +12,10 @@ export const workoutsReducer = (state, action) => {
       return { 
         workouts: [action.payload, ...state.workouts] 
       }
-    case 'DELETE_WORKOUT':
-      return{
-        workouts:state.workouts.filter((a)=>a._id !== action.payload.id)
-      }
+      case 'DELETE_WORKOUT':
+        return { 
+          workouts: state.workouts.filter(w => w._id !== action.payload._id) 
+        }
     default:
       return state
   }
