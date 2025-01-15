@@ -22,14 +22,16 @@ app.use('/api/workouts/' , workoutsRouter)
 
 
 mongoose.connect(process.env.MONG_URI)
-.then(() =>{
-    app.listen(process.env.PORT, () => {
-        console.log('connect db & listen on port ', process.env.PORT)
+    .then(() => {
+        console.log('Connected to MongoDB');
     })
-})
+
 .catch((error) => {
     console.log(error)
 })
+
+
+module.exports = app;
 
 
 
